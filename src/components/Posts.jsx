@@ -4,7 +4,6 @@ import {Card} from './Card'
 import './card.css'
 export const Posts=()=>{
 const [data,setData]=useState([]);
-  // console.log(getPost());
 
 const getPostData=async()=>{
 const res =await getPost();
@@ -17,12 +16,17 @@ console.log(res.data);
   useEffect(()=>{
     getPostData();
   },[])
+ 
   
+const handleDelete=(id)=>{
+setData(data.filter(post=>post.id!==id))
+}
+
   return <>
     <ul className="cards-container">
       {
         data.map((currElem)=>{
-          return <Card key={currElem.id} value={currElem}/>
+          return <Card key={currElem.id} value={currElem} onDelete={handleDelete}/>
         })
       }
     </ul>

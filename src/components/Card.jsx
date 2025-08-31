@@ -3,14 +3,21 @@ import "./card.css";
 import {deletePost}from'../api/PostApi';
 
 
-export const Card = ({ value }) => {
+export const Card = ({ value,onDelete }) => {
   const { id, title, body } = value;
 
 
-  const handleDeletePost=(id)=>{
-    deletePost(id);
-console.log(id);
-
+  const handleDeletePost=async(id)=>{
+   const res =await deletePost(id);
+try {
+    
+    if (res.status==200||res.status==204) {
+        onDelete(id);
+    }
+} catch (error) {
+    console.log(error);
+    
+}
   }
   return (
     <li className="card-item">
