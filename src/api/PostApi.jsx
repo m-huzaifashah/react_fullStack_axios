@@ -8,8 +8,8 @@ export const getPost=()=>{
     return api.get('/posts');
 };
 
-export const post=()=>{
-    return api.post('/posts');
+export const postData=(post)=>{
+    return api.post('/posts',post);
 }
 
 

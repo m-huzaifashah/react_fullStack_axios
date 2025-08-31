@@ -1,7 +1,7 @@
 import { useEffect, useState,} from "react";
 import { getPost } from "../api/PostApi";
 import {Card} from './Card'
-import './card.css'
+import { Form } from "./Form";
 export const Posts=()=>{
 const [data,setData]=useState([]);
 
@@ -23,6 +23,9 @@ setData(data.filter(post=>post.id!==id))
 }
 
   return <>
+  <section>
+    <Form  data={data} setData={setData}/>
+  </section>
     <ul className="cards-container">
       {
         data.map((currElem)=>{
@@ -30,5 +33,5 @@ setData(data.filter(post=>post.id!==id))
         })
       }
     </ul>
-  </>
+</>
 }

@@ -1,5 +1,3 @@
-
-import "./card.css";
 import {deletePost}from'../api/PostApi';
 
 
