@@ -13,8 +13,8 @@ export const postData=(post)=>{
 }
 
 
-export const patch=(id)=>{
-    return api.patch(`/posts/${id}`);
+export const patchData=(id,post)=>{
+    return api.put(`/posts/${id}`,post);
 }
 
 
